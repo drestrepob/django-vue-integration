@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-9^qu(43w608c9@t$n1&-!kck^rt##9zw$m7x)a%aw^scd3au!1
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("POSTGRES_DATABASE"),
+        'NAME': os.environ.get("POSTGRES_DB"),
         'USER': os.environ.get("POSTGRES_USER"),
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
         'HOST': '127.0.0.1',
