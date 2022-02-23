@@ -43,10 +43,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
-      run: |
-        python manage.py test
       env:
         ENVIRONMENT: "test"
         POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
         POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
+      run: |
+        python manage.py test
