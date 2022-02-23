@@ -50,3 +50,25 @@ jobs:
         POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
       run: |
         python manage.py test
+
+  docker-registry:
+    runs-on: ubuntu-20.04
+    needs: [build]
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Docker Hub
+          uses: docker/login-action@v1
+          with:
+            username: ${{ secrets.DOCKER_HUB_USERNAME }}
+            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Build and push docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:buildcache,mode=max
