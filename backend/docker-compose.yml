@@ -1,0 +1,31 @@
+version: '3.0'
+
+services:
+  web:
+    
+    build: .
+    container_name: full-stack-django
+    environment:
+      ENVIRONMENT: development
+    command: >
+      python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/usr/src/
+    ports:
+      - "8010:8000"
+
+  database:
+    image: postgres:13-alpine
+    container_name: full-stack-postgres
+    restart: "no"
+    environment:
+      POSTGRES_USER: daniel
+      POSTGRES_PASSWORD: daniel
+      POSTGRES_DB: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "40001:5432"
+
+volumes:
+  pg_data:
