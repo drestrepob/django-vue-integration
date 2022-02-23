@@ -1,0 +1,25 @@
+# Last update:
+
+# Python WEB framework
+Django==3.2
+
+# Allows in-browser requests to your Django application from other origins
+django-cors-headers==3.10.1
+
+# A configurable set of panels that display various debug information about the current request/response
+django-debug-toolbar==3.2.4
+
+# Collection of custom storage backends for Django
+django-storages==1.9.1
+
+# REST Framework
+djangorestframework==3.13.1
+
+# Python WSGI HTTP Server
+gunicorn==20.1.0
+
+# Python Imaging Library
+pillow==8.1.2
+
+# PostgreSQL python client
+psycopg2==2.9.3
