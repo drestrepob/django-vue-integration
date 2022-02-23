@@ -10,7 +10,9 @@ services:
     command: >
       python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./:/usr/src/
+      - ./apps/:/usr/src/apps/
+      - ./djangoAPI/:/usr/src/djangoAPI/
+      - ./scripts/:/usr/src/scripts/
     ports:
       - "8010:8000"
 
