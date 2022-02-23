@@ -36,7 +36,8 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    'main'
+    'apps.employees',
+    'apps.main',
 ]
 
 THIRD_APPS = [
