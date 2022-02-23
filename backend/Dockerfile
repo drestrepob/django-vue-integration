@@ -1,3 +1,12 @@
+#############################################
+# BUILDER IMAGE: Only for building the code #
+#############################################
+# FROM python:3.8-slim-buster AS builder
+# Soon...
+
+######################################
+# RUNNER IMAGE: For running the code #
+######################################
 FROM python:3.6-slim
 
 # Set work directory
@@ -7,6 +16,7 @@ WORKDIR /usr/src
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# Install here only runtime required packages
 RUN \
  apt-get -y update && \
  apt-get -y install libpq-dev gcc

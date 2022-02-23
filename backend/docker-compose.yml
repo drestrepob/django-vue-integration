@@ -2,9 +2,8 @@ version: '3.0'
 
 services:
   web:
-    
     build: .
-    container_name: full-stack-django
+    container_name: djvue-web
     environment:
       ENVIRONMENT: development
     command: >
@@ -18,7 +17,7 @@ services:
 
   database:
     image: postgres:13-alpine
-    container_name: full-stack-postgres
+    container_name: djvue-postgres
     restart: "no"
     environment:
       POSTGRES_USER: daniel
