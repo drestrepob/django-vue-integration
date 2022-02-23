@@ -6,10 +6,27 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    working-directory: ./backend
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13-alpine
+        env:
+          POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
+        ports:
+          - 5432:5432
+        # Needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     strategy:
       max-parallel: 4
       matrix:
@@ -26,5 +43,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Tests
+      env:
+        ENVIRONMENT: "test"
+        POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
+        POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
+        POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
       run: |
         python manage.py test
