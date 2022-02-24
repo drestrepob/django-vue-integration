@@ -69,6 +69,6 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/django-vue:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:buildcache,mode=max
