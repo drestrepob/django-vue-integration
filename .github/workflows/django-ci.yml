@@ -11,45 +11,45 @@ defaults:
     working-directory: ./backend
 
 jobs:
-  build:
+  # build:
 
-    runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:13-alpine
-        env:
-          POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
-        ports:
-          - 5432:5432
-        # Needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+  #   services:
+  #     postgres:
+  #       image: postgres:13-alpine
+  #       env:
+  #         POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
+  #         POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
+  #         POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
+  #       ports:
+  #         - 5432:5432
+  #       # Needed because the postgres container does not provide a healthcheck
+  #       options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+  #   strategy:
+  #     max-parallel: 4
+  #     matrix:
+  #       python-version: [3.6, 3.7, 3.8, 3.9]
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run Tests
-      env:
-        ENVIRONMENT: "test"
-        POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
-        POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
-        POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
-      run: |
-        python manage.py test
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Set up Python ${{ matrix.python-version }}
+  #     uses: actions/setup-python@v2
+  #     with:
+  #       python-version: ${{ matrix.python-version }}
+  #   - name: Install Dependencies
+  #     run: |
+  #       python -m pip install --upgrade pip
+  #       pip install -r requirements.txt
+  #   - name: Run Tests
+  #     env:
+  #       ENVIRONMENT: "test"
+  #       POSTGRES_USER: ${{ secrets.CI_POSTGRES_USER }}
+  #       POSTGRES_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
+  #       POSTGRES_DB: ${{ secrets.CI_POSTGRES_USER }}
+  #     run: |
+  #       python manage.py test
 
   docker-registry:
     runs-on: ubuntu-20.04
@@ -68,6 +68,7 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v2
         with:
+          context: .
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:latest
