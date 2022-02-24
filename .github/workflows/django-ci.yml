@@ -68,10 +68,8 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./backend/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:buildcache,mode=max
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:latest
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/alternova-learning:latest,mode=max
