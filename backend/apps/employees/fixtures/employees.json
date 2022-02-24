@@ -1,0 +1,170 @@
+[
+{
+  "model": "employees.employee",
+  "pk": 1,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:09:20.066Z",
+    "updated_at": "2022-02-24T22:09:20.066Z",
+    "name": "Alejandro Barbosa",
+    "department": 1,
+    "gender": "M",
+    "hire_date": "2022-02-24T22:09:20.066Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 2,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:09:43.652Z",
+    "updated_at": "2022-02-24T22:09:43.652Z",
+    "name": "Mauricio Velásquez",
+    "department": 3,
+    "gender": "M",
+    "hire_date": "2022-02-24T22:09:43.652Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 3,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:09:55.727Z",
+    "updated_at": "2022-02-24T22:09:55.727Z",
+    "name": "Isabel Mejía",
+    "department": 5,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:09:55.727Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 4,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:10:04.978Z",
+    "updated_at": "2022-02-24T22:10:04.978Z",
+    "name": "Andrea Cardona",
+    "department": 6,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:10:04.978Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 5,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:10:15.858Z",
+    "updated_at": "2022-02-24T22:10:15.858Z",
+    "name": "Siervo Castellanos",
+    "department": 4,
+    "gender": "M",
+    "hire_date": "2022-02-24T22:10:15.858Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 6,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:10:33.046Z",
+    "updated_at": "2022-02-24T22:10:33.046Z",
+    "name": "Felipe Velásquez",
+    "department": 1,
+    "gender": "-",
+    "hire_date": "2022-02-24T22:10:33.046Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 7,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:11:19.156Z",
+    "updated_at": "2022-02-24T22:11:19.156Z",
+    "name": "Nicol Gonzales",
+    "department": 3,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:11:19.156Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 8,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:11:41.037Z",
+    "updated_at": "2022-02-24T22:11:41.037Z",
+    "name": "Sandra Herrera",
+    "department": 4,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:11:41.037Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 9,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:11:53.073Z",
+    "updated_at": "2022-02-24T22:11:53.073Z",
+    "name": "Hernán Cortes",
+    "department": 5,
+    "gender": "M",
+    "hire_date": "2022-02-24T22:11:53.073Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 10,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:12:20.213Z",
+    "updated_at": "2022-02-24T22:12:20.213Z",
+    "name": "Claudia Muñoz",
+    "department": 2,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:12:20.213Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 11,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:13:29.893Z",
+    "updated_at": "2022-02-24T22:13:29.893Z",
+    "name": "Andres Sanchez",
+    "department": 4,
+    "gender": "M",
+    "hire_date": "2022-02-24T22:13:29.893Z",
+    "picture": ""
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 12,
+  "fields": {
+    "is_active": true,
+    "created_at": "2022-02-24T22:13:57.181Z",
+    "updated_at": "2022-02-24T22:13:57.181Z",
+    "name": "Patricia Camargo",
+    "department": 6,
+    "gender": "F",
+    "hire_date": "2022-02-24T22:13:57.181Z",
+    "picture": ""
+  }
+}
+]
