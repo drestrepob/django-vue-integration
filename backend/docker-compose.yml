@@ -4,10 +4,11 @@ services:
   web:
     build: .
     container_name: djvue-web
+    depends_on:
+      - database
     environment:
       ENVIRONMENT: development
-    command: >
-      python manage.py runserver 0.0.0.0:8000
+    command: ["./scripts/wait-for-it.sh", "database:5432", "--", "./scripts/dev-entrypoint.sh"]
     volumes:
       - ./apps/:/usr/src/apps/
       - ./djangoAPI/:/usr/src/djangoAPI/
